@@ -45,11 +45,13 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        String newString ="";
-        for (int i =0; i < array.length; i++) {
-            newString += i;
+        for (String s : array) { // For each string in the array[]
+            if (s == value) { //If string in array matches the string value
+                return true; //return true
+            }
+            System.out.println(s);
         }
-        System.out.println()
+        return false;
     }
 
     /**
@@ -57,7 +59,13 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        String[] reverse = new String[array.length]; //Initialize empty array reverse to match Orig. Array length.
+
+        for (int i = 0; i < reverse.length; i++) { //Loop through reverse array
+            reverse[i] = array[array.length - 1 -i]; //Assign the characters from array to new reverse array.
+            System.out.println(reverse[i]);
+        }
+        return reverse;
     }
 
     /**
@@ -65,7 +73,8 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        String[] array2 = new String[array.length];
+        
     }
 
     /**

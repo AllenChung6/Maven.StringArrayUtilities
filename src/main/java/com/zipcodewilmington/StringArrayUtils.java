@@ -80,14 +80,26 @@ public class StringArrayUtils {
         }
         return false;
     }
-    
+
 
     /**
      * @param array array of String objects
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+
+        StringBuilder string = new StringBuilder();
+        char[] charArray = new char[] {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r', 's',
+                't','u','v','w','x','y','z'};
+
+        string.append(charArray);
+        System.out.println(string);
+
+        //for (int i=0; i < charArray.length; i++){
+          //  charArray[i] == alphabet[i];
+        //}
+
+        return true;
     }
 
     /**
@@ -96,7 +108,14 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int count = 0;                          //Initialize counter = 0
+
+        for (String string : array) {           // Create For each loop to loop through array
+            if (string == value) {              // if the String value in array equals the given value
+                count++;                        //Add +1 to the counter
+            }
+        }
+        return count; // return the count
     }
 
     /**
@@ -105,7 +124,17 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        String[] remove = new String[array.length - 1];
+
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i].equals(valueToRemove)) {
+                array[i] = null;
+            }
+
+
+        }
+        System.out.println(array);
+        return array;
     }
 
     /**

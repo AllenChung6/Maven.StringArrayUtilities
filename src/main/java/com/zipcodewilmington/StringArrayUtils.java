@@ -73,9 +73,14 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        String[] array2 = new String[array.length];
-        
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == array[array.length - 1 - i]) {
+                return true;
+            }
+        }
+        return false;
     }
+    
 
     /**
      * @param array array of String objects

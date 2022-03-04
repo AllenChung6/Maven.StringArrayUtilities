@@ -1,5 +1,7 @@
 package com.zipcodewilmington;
 
+import java.lang.reflect.Array;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -10,6 +12,7 @@ public class StringArrayUtils {
      */ // TODO
     public static String getFirstElement(String[] array) {
         return array[0];
+
     }
 
     /**
@@ -25,8 +28,16 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        int lastItem = Integer.parseInt(array[array.length-1]);
+        return lastItem[i];
     }
+
+
+
+
+
+
+
 
     /**
      * @param array array of String objects

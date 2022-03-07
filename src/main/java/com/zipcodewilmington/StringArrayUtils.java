@@ -1,6 +1,8 @@
 package com.zipcodewilmington;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by leon on 1/29/18.
@@ -124,25 +126,64 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        String[] remove = new String[array.length - 1];
+        int size = 0;
 
-        for (int i = 0; i < array.length - 1; i++) {
-            if (array[i].equals(valueToRemove)) {
-                array[i] = null;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != valueToRemove) {
+                size++;
+                //System.out.println(remove[i] + " " + i);
             }
-
-
         }
-        System.out.println(array);
-        return array;
+        String[] remove = new String[size];
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != valueToRemove) {
+                remove[index] = array[i];
+                index++;
+            }
+        }
+        return remove;
     }
-
     /**
      * @param array array of chars
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        //Traverse String array.
+        //If index matches next index, skip that index value.
+
+        //int size = 0; //Size Counter to calculate new array size
+        //int newSize; //holds total size after adding up size counter
+        String empty = "";
+        String hold = "";
+
+        for (int i=0; i <array.length-1; i++) { //Traverse empty array
+            if (!array[i].equals(array[i+1])) { //Check for consecutive duplicates.
+               empty += array[i];//Add all values except for consecutive duplicates.
+               hold = array[i];
+
+            } else if (i == array.length-2 && !hold.equals(array[i+1])) {
+                empty += array[i];
+            } //else if (i==array.length-2 && !hold.equals(array[i+1])
+      //      else size++;
+        }
+
+        //newSize = array.length - size;
+        //System.out.println(newSize);
+
+        //int index2 = 0;
+        //String[] removeArray = new String[newSize];
+
+        //Create an array that breaks up non-duplicate string into strings of 3.
+        List<String> pieces = new ArrayList<>();
+
+        int length = empty.length();
+        for (int i = 0; i < length; i += 3) {
+            pieces.add(empty.substring(i, Math.min(length, i + 3))); //Splits empty string into strings of 3
+        }
+        System.out.println(pieces);
+
+        return pieces.toArray(new String[0]);
     }
 
     /**
@@ -152,6 +193,6 @@ public class StringArrayUtils {
     public static String[] packConsecutiveDuplicates(String[] array) {
         return null;
     }
-
-
 }
+
+
